@@ -14,6 +14,7 @@ An AI agent that helps user learn different languages and tracks their progress 
 - [x] Chat with the user in the learning language. 
 
 2. Fine grain features 
-- [x] Help the user when mistakes are made
-- [x] Add the mistakes to a database, record the mistakes 
-- [ ] Review the mistakes and what areas the user can improve 
+- [x] Help the user when mistakes are made.
+- [x] Add the mistakes to a database, record the mistakes .
+- [ ] Create a comprehensive review of the mistakes.
+- [ ] Show user the are they can improve.
