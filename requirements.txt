@@ -1,0 +1,11 @@
+google-genai
+langchain 
+langchain-core
+langchain-community
+langchain-google-genai
+langchain-openai
+
+pydantic-settings
+loguru
+
+SQLAlchemy
