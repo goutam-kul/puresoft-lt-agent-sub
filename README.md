@@ -16,5 +16,5 @@ An AI agent that helps user learn different languages and tracks their progress 
 2. Fine grain features 
 - [x] Help the user when mistakes are made.
 - [x] Add the mistakes to a database, record the mistakes .
-- [ ] Create a comprehensive review of the mistakes.
-- [ ] Show user the are they can improve.
+- [x] Create a comprehensive review of the mistakes.
+- [x] Show user the are they can improve.
