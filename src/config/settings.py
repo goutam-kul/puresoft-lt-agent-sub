@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic_settings import BaseSettings
 from dotenv import load_dotenv
 load_dotenv()
@@ -6,8 +7,14 @@ import os
 
 class Settings:
 
-    GEMINI_API_KEY: str = os.environ.get('GEMINI_API_KEY')
+    GEMINI_API_KEY: str = os.environ.get("GEMINI_API_KEY")
     GEMINI_MODEL: str = 'gemini-2.0-flash'
+
+    REDIS_HOST: str = os.environ.get("REDIS_HOST", "localhost")
+    REDIS_PORT: int = int(os.environ.get("REDIS_PORT", 6379))
+    REDIS_PASSWORD: Optional[str] = str(os.environ.get("REDIS_PASSWORD", None))
+    REDIS_DB: int = int(os.environ.get("REDIS_DB", 0))
+    SESSION_TTL_SECONDS: int = int(os.environ.get("SESSION_TTL_SECONDS", 3600)) # 1 hour
 
     SYSTEM_PROMPT: str = """
     Your name is Dex. You are a friendly, knowledgable, and enthusiastic language teacher. You are an expert in multiple languages and 

@@ -14,7 +14,7 @@ import uuid
 class Assistant:
     """Base class for all LLM calls"""
 
-    def __init__(self, session_id: str):
+    def __init__(self, session_id):
         self.client = genai.Client(api_key=settings.GEMINI_API_KEY)
         self.gemini_model = settings.GEMINI_MODEL
         self.chat_message_history = SQLChatMessageHistory(
@@ -53,7 +53,8 @@ class Assistant:
 
         except Exception as e:
             logger.error(f"Failed to send request to Gemini: {e}")
-
+    
+    # TODO: Make this async
     def ask(
         self, 
         query: str,
@@ -362,15 +363,16 @@ class Assistant:
 
 
 if __name__ == "__main__":
-    current_session_id = str(uuid.uuid4())
-    assist = Assistant(session_id=current_session_id)
-    while True:
-        query = input(": ")
-        if query == 'bye':
-            break
-        else:
-            response = assist.ask(query=query)
-            print(response)
+    assist = Assistant(session_id='test_session')
+    # logger.info(f"New session generated with session_id :{assist.session_id}")
+    # while True:
+    #     query = input(": ")
+    #     if query == 'bye':
+    #         break
+    #     else:
+    #         response = assist.ask(query=query)
+    #         print(response)
         
     # intent = assist._detect_intention(query="Show me the mistakes I have made during this chat ")
     # print(intent)
+    print(assist.chat_message_history.messages)

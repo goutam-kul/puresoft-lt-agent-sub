@@ -9,3 +9,7 @@ pydantic-settings
 loguru
 
 SQLAlchemy
+fastapi
+fastapi[standard]
+redis
+redis[hiredis]
