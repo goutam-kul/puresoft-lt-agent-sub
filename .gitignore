@@ -175,5 +175,4 @@ cython_debug/
 
 # Db
 sqlite.db
-
-frontend/
+prompt.txt

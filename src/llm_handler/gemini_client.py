@@ -284,7 +284,12 @@ class Assistant:
     def _clean_mistake_tags(self, text: str) -> str:
         pattern = re.compile(r"\[CorrectionStart\].*?\[CorrectionEnd\]", re.DOTALL)
         # Remove the matched content  from the response
-        return pattern.sub("", text).strip('')
+        cleaned_text = pattern.sub("", text)
+
+        # Remove the correction block itself
+        cleaned_text = cleaned_text.replace('``', '')
+
+        return cleaned_text.strip()
     
     def _parse_mistakes_data(self, mistakes_data: List[Dict]) -> str:
         """Parse the mistakes data list of dictioonary and return a sophisticated string"""
@@ -364,15 +369,15 @@ class Assistant:
 
 if __name__ == "__main__":
     assist = Assistant(session_id='test_session')
-    # logger.info(f"New session generated with session_id :{assist.session_id}")
-    # while True:
-    #     query = input(": ")
-    #     if query == 'bye':
-    #         break
-    #     else:
-    #         response = assist.ask(query=query)
-    #         print(response)
+    logger.info(f"New session generated")
+    while True:
+        query = input(": ")
+        if query == 'bye':
+            break
+        else:
+            response = assist.ask(query=query)
+            print(response)
         
     # intent = assist._detect_intention(query="Show me the mistakes I have made during this chat ")
     # print(intent)
-    print(assist.chat_message_history.messages)
+    # print(assist.chat_message_history.messages)

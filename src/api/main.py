@@ -91,7 +91,7 @@ async def handle_chat(
             # Using SETEX: SETEX key seconds value
             # Simple value '1' indicating existence 
             await redis_client.setex(session_id, settings.SESSION_TTL_SECONDS, 1)
-            logger.info(f"Generated and stored new seesion ID '{session_id} with TTL {settings.SESSION_TTL_SECONDS}")
+            logger.info(f"Generated and stored new seesion ID '{session_id}' with TTL {settings.SESSION_TTL_SECONDS}")
 
         # Core Logic 
         # Instantiate the Assistant class

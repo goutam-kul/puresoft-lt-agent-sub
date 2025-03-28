@@ -13,3 +13,5 @@ fastapi
 fastapi[standard]
 redis
 redis[hiredis]
+
+streamlit
