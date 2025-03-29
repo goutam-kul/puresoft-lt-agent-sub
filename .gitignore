@@ -176,3 +176,4 @@ cython_debug/
 # Db
 sqlite.db
 prompt.txt
+diagrams

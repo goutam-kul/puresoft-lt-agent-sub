@@ -78,6 +78,8 @@ async def handle_chat(
             session_exits = await redis_client.exists(session_id)
             if session_exits:
                 logger.info(f"Existing session ID '{session_id}' found in Redis")
+                # reset the expire time back to SESSION_TTL_SECONDS
+                # This way the session does not expires untill the user is idle for more than the SESSION_TTL_SECONDS
                 await redis_client.expire(session_id, settings.SESSION_TTL_SECONDS)
             else:
                 logger.info("Provided session ID not found or expired, generating a new session")
