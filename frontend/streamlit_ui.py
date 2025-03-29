@@ -57,6 +57,6 @@ if prompt := st.chat_input("Hey! I want to learn a new language."):
         st.session_state.messages.append({"role": "assistant", "content": ai_response_text})
 
     except requests.exceptions.RequestException as e:
-        st.error(f"Backend Error: {e}")
+        st.error(f"Error connecting to the server, Ensure the backend server is running: {str(e)}")
     except Exception as e:
-        st.error(f"An error occured : {e}")
+        st.error(f"An Unknown error occured : {str(e)}")        
